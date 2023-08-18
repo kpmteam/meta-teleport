@@ -8,6 +8,8 @@ SRC_URI = "https://get.gravitational.com/${FILE_NAME}"
 
 SHASUM_URI = "https://get.gravitational.com/${FILE_NAME}.sha256"
 
+S = "${WORKDIR}/teleport"
+
 # Disable already-stripped as it is not needed
 INSANE_SKIP:${PN} += "already-stripped"
 
@@ -23,6 +25,8 @@ python fetch_checksums() {
     bb.error("Could not find remote checksum")
 }
 
+PACKAGES = "${PN} ${PN}-tctl ${PN}-tsh ${PN}-tbot"
+
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/teleport/teleport ${D}${bindir}
@@ -34,8 +38,8 @@ do_install() {
 }
 
 FILES:${PN} = "${bindir}/teleport \
-${bindir}/tctl \
-${bindir}/tsh \
-${bindir}/tbot \
 /var/lib/teleport \
 "
+FILES:${PN}-tctl = "${bindir}/tctl"
+FILES:${PN}-tsh = "${bindir}/tsh"
+FILES:${PN}-tbot = "${bindir}/tbot"
