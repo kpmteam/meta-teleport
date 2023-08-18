@@ -1,6 +1,6 @@
 DESCRIPTION = "Installs the Teleport Client"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"
 
 FILE_NAME = "teleport-v${PV}-linux-${TARGET_ARCH}-bin.tar.gz"
 
@@ -25,16 +25,17 @@ python fetch_checksums() {
 
 do_install() {
     install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/teleport/teleport ${D}${bindir}/teleport
-    install -m 0755 ${WORKDIR}/teleport/tctl ${D}${bindir}/tctl
-    install -m 0755 ${WORKDIR}/teleport/tsh ${D}${bindir}/tsh
-    install -m 0755 ${WORKDIR}/teleport/tbot ${D}${bindir}/tbot
+    install -m 0755 ${WORKDIR}/teleport/teleport ${D}${bindir}
+    install -m 0755 ${WORKDIR}/teleport/tctl ${D}${bindir}
+    install -m 0755 ${WORKDIR}/teleport/tsh ${D}${bindir}
+    install -m 0755 ${WORKDIR}/teleport/tbot ${D}${bindir}
 
     install -d ${D}/var/lib/teleport
 }
 
-FILES_${PN} = "${bindir}/teleport \
+FILES:${PN} = "${bindir}/teleport \
 ${bindir}/tctl \
 ${bindir}/tsh \
 ${bindir}/tbot \
+/var/lib/teleport \
 "
