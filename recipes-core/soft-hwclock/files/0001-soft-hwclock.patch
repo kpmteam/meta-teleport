@@ -1,0 +1,15 @@
+--- ../soft-hwclock       2023-09-11 19:51:55.347546496 +0000
++++ ../soft-hwclock       2023-09-11 19:52:15.772238949 +0000
+@@ -1,10 +1,10 @@
+ #!/bin/sh
+ 
+-# Get the saved time (or empty) and clock time, in RFC399 format
++# Get the saved time (or empty) and clock time, in ISO format
+ # This format sorts lexicographically
+ 
+ CLOCKFILE="/opt/soft-hwclock/soft-hwclock.data"
+-CTIME=$(date --rfc-3339=seconds)
++CTIME=$(date -Iseconds)
+ FTIME=$(test -f "${CLOCKFILE}" && cat "${CLOCKFILE}")
+ 
+ # if the file time is in the future, use that
