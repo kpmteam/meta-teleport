@@ -1,26 +1,7 @@
-# meta-teleport
-Install teleport with yocto
+# meta-kpmpower
+Provides recipes for:
+- [Teleport](https://goteleport.com/)
+- [soft-hwclock](https://github.com/kristjanvalur/soft-hwclock)
 
-Installs the version of the teleport binary that matches the version of the recipe.
-
-Installs the binary based on your machine architecture.
-
-## Packages
-
-### teleport
-
-The teleport binary.
-
-This is separate to allow the smallest possible install.
-
-### teleport-tctl
-
-The tctl binary.
-
-### teleport-tsh
-
-The tsh binary.
-
-### teleport-tbot
-
-The tbot binary.
+## Maintainers
+- Matthew Draws: [mdsketch](https://github.com/mdsketch)
