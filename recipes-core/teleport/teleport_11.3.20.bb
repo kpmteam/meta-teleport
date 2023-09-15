@@ -1,7 +1,7 @@
-DESCRIPTION = "Installs the Teleport Client"
+DESCRIPTION = "Installs the Teleport Client, NOTE: this recipe does not compile the source code, it only installs the pre-compiled binaries from goteleport.com/download"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"
-
+SUMMARY = "Teleport Client"
 FILE_NAME = "teleport-v${PV}-linux-${TARGET_ARCH}-bin.tar.gz"
 
 SRC_URI = "https://get.gravitational.com/${FILE_NAME}"
