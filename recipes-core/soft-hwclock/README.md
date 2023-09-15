@@ -8,6 +8,6 @@ https://github.com/kristjanvalur/soft-hwclock#installation
 
 ## Patch
 
-Changes to use ISO format from RFC399 format.
+Changed command output to function with default busybox setup.
 
-Make sure to enable ISO in busybox.
+If you want a different timezone other than UTC you need to change the patch in a bbappend file.
